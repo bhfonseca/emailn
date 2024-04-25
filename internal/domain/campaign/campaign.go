@@ -13,3 +13,19 @@ type Campaing struct {
 	Content   string
 	Contacts  []Contact
 }
+
+func NewCampaign(name, content string, emails []string) *Campaing {
+
+	contacts := make([]Contact, len(emails))
+	for index, email := range emails {
+		contacts[index].Email = email
+	}
+
+	return &Campaing{
+		ID:        "1",
+		Name:      name,
+		Content:   content,
+		CreatedOn: time.Now(),
+		Contacts:  contacts,
+	}
+}
